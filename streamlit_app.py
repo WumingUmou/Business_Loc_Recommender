@@ -155,14 +155,14 @@ res = get_pred(categories, temp, str(label[0]))
 temp = []
 clu1 = []
 clu2 = []
-for l in res[1:]:
+for l in res[:-1]:
     temp.append(data[data["cluster"]==l])
 
 res_layers =[]
 
 res_layers=[pdk.Layer( 
                 "ScatterplotLayer",
-                data=data[data["cluster"]==res[0]],
+                data=data[data["cluster"]==res[-1]],
                 get_position=["longitude", "latitude"],
                 auto_highlight=True,
                 get_radius=300,          
